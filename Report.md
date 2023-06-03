@@ -42,10 +42,10 @@ I would try different initial hyperparameter optimizaion, increased the `time_li
 import pandas as pd
 pd.DataFrame({
     "model": ["initial", "add_features", "hpo"],
-    "hpo1": ["Default","Default",'"bootstrap_type": "Bayesian","leaf_estimation_iterations": 5' ],
-    "hpo2": ["Default", "Default","search_strategy:skopt"],
-    "hpo3": ["Default", "Default", "GBM: 'num_boost_round': 100,'num_leaves': space.Int(lower=26, upper=66, default=36)"],
-    "score": [0.48622, 1.79782, 0.67655]
+    "hpo1": ["Default","Default","Default" ],
+    "hpo2": ["Default", "Default","Default"],
+    "hpo3": ["Default", 'hyperparameter_tune_kwargs = "auto"', 'num_bag_folds = 5, num_bag_sets=1, num_stack_levels=1'],
+    "score": [1.80464, 0.49005 , 0.47085]
 })
 ```
 
@@ -84,7 +84,7 @@ pd.DataFrame({
       <td>Default</td>
       <td>Default</td>
       <td>Default</td>
-      <td>0.48622</td>
+      <td>1.80464</td>
     </tr>
     <tr>
       <th>1</th>
@@ -92,15 +92,16 @@ pd.DataFrame({
       <td>Default</td>
       <td>Default</td>
       <td>Default</td>
-      <td>1.79782</td>
+      <td>0.49005</td>
     </tr>
     <tr>
       <th>2</th>
       <td>hpo</td>
-      <td>"bootstrap_type": "Bayesian","leaf_estimation_...</td>
-      <td>search_strategy:skopt</td>
-      <td>GBM: 'num_boost_round': 100,'num_leaves': spac...</td>
-      <td>0.67655</td>
+      <td>Default</td>
+      <td>hyperparameter_tune_kwargs: "auto"</td>
+      <td>num_bag_folds = 5, num_bag_sets=1, num_stack_levels=1</td>
+      <td>0.47085</td>
+      
     </tr>
   </tbody>
 </table>
